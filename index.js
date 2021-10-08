@@ -15,18 +15,18 @@ function computerPlay() {
  //User chooses from Rock, Paper or Scissors
 
  //Values are compared to see who wins
-  function playRound(playerSelection, computerSelection) {
+  function playRound(playerChoice, computerSelection) {
     if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'PAPER') {
         return "You win! Scissors beats Paper!"
-    } else if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'ROCK') {
+    } else if (playerChoice.toUpperCase() === 'SCISSORS' && computerSelection === 'ROCK') {
         return "You lose! Rock beats Scissors!"
-    } else if (playerSelection.toUpperCase() === 'ROCK' && computerSelection === 'SCISSORS') {
+    } else if (playerChoice.toUpperCase() === 'ROCK' && computerSelection === 'SCISSORS') {
         return "You win! Rock beats Scissors"
-    } else if (playerSelection.toUpperCase() === 'ROCK' && computerSelection === 'PAPER') {
+    } else if (playerChoice.toUpperCase() === 'ROCK' && computerSelection === 'PAPER') {
         return "You lose! Paper beats Rock!"
-    } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection === 'ROCK') {
+    } else if (playerChoice.toUpperCase() === 'PAPER' && computerSelection === 'ROCK') {
         return "You win! Paper beats Rock!"
-    } else if (playerSelection.toUpperCase() === 'PAPER' && computerSelection === 'SCISSORS') {
+    } else if (playerChoice.toUpperCase() === 'PAPER' && computerSelection === 'SCISSORS') {
         return "You lose! Scissors beats Paper!"
     } else {
         return "You both chose " + playerSelection + " so its a draw!"
@@ -42,27 +42,32 @@ const playerSelection = 'Rock';
 function game() {
     let computerScore = 0;
     let userScore = 0;
-    for (gamesPlayed = 1; gamesPlayed < 6; gamesPlayed++){
+    for (gamesPlayed = 1; gamesPlayed <= 5; gamesPlayed++){
         
-       //playRound(playerSelection, computerPlay());
+        const playerChoice = prompt("Please enter either Rock, Paper or Scissors", "");
+        let gameResult = playRound(playerChoice, computerPlay());
+        //console.log("This is my console log" + gameResult);
         
         
         
         
-        if (playRound(playerSelection, computerPlay()).includes("win")) {
+        if (gameResult.includes("win")) {
             userScore += 1;
-            console.log("The result is", playRound(playerSelection, computerPlay()) + " User: " + userScore + " Computer: " + computerScore);           
-            //console.log("User: " + userScore + " Computer: " + computerScore);
-        } else if (playRound(playerSelection, computerPlay()).includes("lose")) {
+            console.log("The result is " + gameResult + " User: " + userScore + " Computer: " + computerScore);           
+                
+        } else if (gameResult.includes("lose")) {
             computerScore +=1;
-            console.log("The result is", playRound(playerSelection, computerPlay()) + " User: " + userScore + " Computer: " + computerScore);
-            //console.log("User: " + userScore + " Computer: " + computerScore);
-        } else {
-            console.log("It's a draw, User: " + userScore + " Computer: " + computerScore);            
-    
-        }
-        if (gamesPlayed === 5) {
+            console.log("The result is", gameResult + " User: " + userScore + " Computer: " + computerScore);
+                
+        } else if (gameResult.includes("draw")){
+            userScore +=1;
+            computerScore +=1;
+            console.log("It's a draw, as you both chose " + playerChoice + " User: " + userScore + " Computer: " + computerScore);            
         
+        }
+        
+         
+         if (gamesPlayed === 5) {
             if(userScore > computerScore) {
                 return console.log("You win with a score of " + userScore + " : " + computerScore);
             } else if (userScore < computerScore) {
@@ -70,7 +75,7 @@ function game() {
             } else {
                 return console.log("Its a draw");
             }
-        }
+          }
     }
 
     
