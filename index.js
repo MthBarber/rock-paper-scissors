@@ -44,11 +44,14 @@ function game() {
     let userScore = 0;
     for (gamesPlayed = 1; gamesPlayed <= 5; gamesPlayed++){
         
-        const playerChoice = prompt("Please enter either Rock, Paper or Scissors", "");
+        let playerChoice = prompt("Please enter either Rock, Paper or Scissors", "").toUpperCase();
         let gameResult = playRound(playerChoice, computerPlay());
         //console.log("This is my console log" + gameResult);
         
-        
+        if (playerChoice != "PAPER" && playerChoice != "ROCK" && playerChoice != "SCISSORS") {
+            console.log("This is not an available choice");
+            return playerChoice = prompt("Please enter either Rock, Paper or Scissors", "");
+        }
         
         
         if (gameResult.includes("win")) {
