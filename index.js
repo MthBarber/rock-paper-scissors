@@ -1,4 +1,16 @@
+// add functionality to buttons to make UI
+document.getElementById("rock").addEventListener("click", e => {
+    playRound("rock",computerPlay());
+});
 
+document.getElementById("paper").addEventListener("click", e => {
+    playRound("paper", computerPlay());
+});
+
+
+document.getElementById("scissors").addEventListener("click", e => {
+    playRound("scissors", computerPlay());
+});
 
  //Create an array for the 3 selections possible Rock, Paper and Scissors
 const answerArray = ['Rock', 'Paper', 'Scissors']
@@ -16,7 +28,7 @@ function computerPlay() {
 
  //Values are compared to see who wins
   function playRound(playerChoice, computerSelection) {
-    if (playerSelection.toUpperCase() === 'SCISSORS' && computerSelection === 'PAPER') {
+    if (playerChoice.toUpperCase() === 'SCISSORS' && computerSelection === 'PAPER') {
         return "You win! Scissors beats Paper!"
     } else if (playerChoice.toUpperCase() === 'SCISSORS' && computerSelection === 'ROCK') {
         return "You lose! Rock beats Scissors!"
@@ -33,8 +45,7 @@ function computerPlay() {
         }
     }
 
-    //Function test of game result here
-const playerSelection = 'Rock';
+    
 
 //Create function game so that its a best of 5
 
