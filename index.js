@@ -37,7 +37,9 @@ function computerPlay() {
 const playerSelection = 'Rock';
 
 //Create function game so that its a best of 5
-function game() {
+
+// temporary close off this function while adding buttons
+//function game() {
     let computerScore = 0;
     let userScore = 0;
     for (gamesPlayed = 1; gamesPlayed <= 5; gamesPlayed++){
@@ -81,5 +83,5 @@ function game() {
 
     
 
-}
+//}
   
