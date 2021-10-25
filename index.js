@@ -35,9 +35,7 @@ function computerPlay() {
 
     //Function test of game result here
 const playerSelection = 'Rock';
-//const computerSelection = computerPlay();
-//console.log(playRound(playerSelection, computerSelection));
-//const gameResult = playRound(playerSelection, computerPlay());
+
 //Create function game so that its a best of 5
 function game() {
     let computerScore = 0;
