@@ -31,41 +31,50 @@ function playerScoreUpdate(){
     let userNumber = userScore.innerHTML;
     userNumber++;
     userScore = userNumber;
+    console.log(typeof userScore);
     return document.getElementById('user').innerHTML = userScore;
 }
 
  //Values are compared to see who wins
   function playRound(playerChoiceUpper, computerSelection) {
     if (playerChoiceUpper === 'SCISSORS' && computerSelection === 'PAPER') {
-        playerScoreUpdate()
-        console.log("Userscore is:" + document.getElementById('user').innerHTML);
-        
-        return console.log("You win! Scissors beats Paper!")
+        playerScoreUpdate();
+        outcome();     
+        return document.getElementById('game').innerHTML = "You win! Scissors beats Paper!";
     } else if (playerChoiceUpper === 'SCISSORS' && computerSelection === 'ROCK') {
         computerScoreUpdate();
-        return console.log("You lose! Rock beats Scissors!")
+        outcome();
+        return document.getElementById('game').innerHTML = "You lose! Rock beats Scissors!";
     } else if (playerChoiceUpper === 'ROCK' && computerSelection === 'SCISSORS') {
-        playerScoreUpdate()
-        console.log("Userscore is:" + document.getElementById('user').innerHTML);
-        
-        return console.log("You win! Rock beats Scissors")
+        playerScoreUpdate();
+        outcome();        
+        return document.getElementById('game').innerHTML = "You win! Rock beats Scissors";
     } else if (playerChoiceUpper === 'ROCK' && computerSelection === 'PAPER') {
         computerScoreUpdate();
-        return console.log("You lose! Paper beats Rock!")
+        outcome();
+        return document.getElementById('game').innerHTML = "You lose! Paper beats Rock!";
     } else if (playerChoiceUpper === 'PAPER' && computerSelection === 'ROCK') {
-        playerScoreUpdate()
-        console.log("Userscore is:" + document.getElementById('user').innerHTML);
-        
-        return console.log("You win! Paper beats Rock!")
+        playerScoreUpdate();
+        outcome();        
+        return document.getElementById('game').innerHTML = "You win! Paper beats Rock!"
     } else if (playerChoiceUpper === 'PAPER' && computerSelection === 'SCISSORS') {
         computerScoreUpdate();
-        return console.log("You lose! Scissors beats Paper!")
+        outcome();
+        return document.getElementById('game').innerHTML = "You lose! Scissors beats Paper!";
     } else {
-        return console.log("You both chose " + playerChoiceUpper + " so its a draw!")
+        return document.getElementById('game').innerHTML = "You both chose " + playerChoiceUpper + " so its a draw!";
         }
     }
 
-
+    //function to declare winner
+    function outcome() {
+        if (document.getElementById('user').innerHTML == 5){
+            document.getElementById('outcome').innerHTML = "You win! As you won 5 games!";
+        }else if (document.getElementById('computer').innerHTML == 5) {
+            document.getElementById('outcome').innerHTML = "You lose! As the computer won 5 games!"
+        }else
+            return
+    }
 
 
 
