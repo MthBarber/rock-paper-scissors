@@ -24,31 +24,38 @@ function computerScoreUpdate(){
     let computerNumber = computerScore.innerHTML;
     computerNumber++;
     computerScore = computerNumber;
+    return document.getElementById('computer').innerHTML = computerScore;
 }
-
+function playerScoreUpdate(){
     let userScore = document.getElementById('user');
     let userNumber = userScore.innerHTML;
-
+    userNumber++;
+    userScore = userNumber;
+    return document.getElementById('user').innerHTML = userScore;
+}
 
  //Values are compared to see who wins
   function playRound(playerChoiceUpper, computerSelection) {
     if (playerChoiceUpper === 'SCISSORS' && computerSelection === 'PAPER') {
-        userNumber++;
-        userScore = userNumber;
+        playerScoreUpdate()
+        console.log("Userscore is:" + document.getElementById('user').innerHTML);
+        
         return console.log("You win! Scissors beats Paper!")
     } else if (playerChoiceUpper === 'SCISSORS' && computerSelection === 'ROCK') {
         computerScoreUpdate();
         return console.log("You lose! Rock beats Scissors!")
     } else if (playerChoiceUpper === 'ROCK' && computerSelection === 'SCISSORS') {
-        userNumber++;
-        userScore = userNumber;
+        playerScoreUpdate()
+        console.log("Userscore is:" + document.getElementById('user').innerHTML);
+        
         return console.log("You win! Rock beats Scissors")
     } else if (playerChoiceUpper === 'ROCK' && computerSelection === 'PAPER') {
         computerScoreUpdate();
         return console.log("You lose! Paper beats Rock!")
     } else if (playerChoiceUpper === 'PAPER' && computerSelection === 'ROCK') {
-        userNumber++;
-        userScore = userNumber;
+        playerScoreUpdate()
+        console.log("Userscore is:" + document.getElementById('user').innerHTML);
+        
         return console.log("You win! Paper beats Rock!")
     } else if (playerChoiceUpper === 'PAPER' && computerSelection === 'SCISSORS') {
         computerScoreUpdate();
