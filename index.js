@@ -2,7 +2,6 @@ const newDiv = document.createElement("div")
  //Create an array for the 3 selections possible Rock, Paper and Scissors
 const answerArray = ['Rock', 'Paper', 'Scissors']
 
-
  //Computer picks random element from Rock, Paper or Scissors
 function computerPlay() {
     const computerPick = Math.floor(Math.random() * answerArray.length);
@@ -30,8 +29,7 @@ function playerScoreUpdate(){
     let userScore = document.getElementById('user');
     let userNumber = userScore.innerHTML;
     userNumber++;
-    userScore = userNumber;
-    console.log(typeof userScore);
+    userScore = userNumber;   
     return document.getElementById('user').innerHTML = userScore;
 }
 
@@ -70,30 +68,40 @@ function playerScoreUpdate(){
     function outcome() {
         if (document.getElementById('user').innerHTML == 5){
             document.getElementById('outcome').innerHTML = "You win! As you won 5 games!";
+            let btn = document.createElement("button");
+            btn.innerHTML = "Restart";
+            document.body.appendChild(btn);            
         }else if (document.getElementById('computer').innerHTML == 5) {
             document.getElementById('outcome').innerHTML = "You lose! As the computer won 5 games!"
+            let btn = document.createElement("button");
+            btn.innerHTML = "Restart";
+            document.body.appendChild(btn);
         }else
             return
     }
 
-
-
+    //make a restart button to reset scores and all DOM updates
+    //function restart(){
+        //btn.addEventListener('click', () => {
+            //document.getElementById('index.html').reset();
+                
+       // });
+   // }
+    
 
 // add functionality to buttons to make UI
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     let playerChoice = "Rock";
     let playerChoiceUpper = playerChoice.toUpperCase();
-    playRound(playerChoiceUpper,computerPlay());
-    //alert("You clicked Rock");
+    playRound(playerChoiceUpper,computerPlay());    
 });
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
     let playerChoice = "Paper";
     let playerChoiceUpper = playerChoice.toUpperCase();
-    playRound(playerChoiceUpper, computerPlay());
-    //alert("You clicked Paper");
+    playRound(playerChoiceUpper, computerPlay());    
 });
     
 
@@ -101,8 +109,7 @@ const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => {
     let playerChoice = "Scissors";
     let playerChoiceUpper = playerChoice.toUpperCase();
-    playRound(playerChoiceUpper, computerPlay());
-    //alert("You clicked Scissors");
+    playRound(playerChoiceUpper, computerPlay());    
 });
     
 
